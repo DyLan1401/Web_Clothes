@@ -32,7 +32,11 @@
                                 </div>
                                 <div class="d-grid mx-auto">
                                         <!--Login with gg-->
-                                    <a href="{{route('auth.google') }}" class=" text-center  ">Login with Google</a>
+                                    <a title="Login with Google" href="{{route('auth.redirection','google') }}" class=" text-center  ">Login with Google</a>
+                                </div>
+                                <div class="d-grid mx-auto">
+                                        <!--Login with facebook-->
+                                    <a title="Login with Facebook" href="{{route('auth.redirection','facebook') }}" class=" text-center  ">Login with Facebook</a>
                                     <button type="submit" class="btn btn-dark btn-block">Sign in</button>
                                 </div>
                             </form>

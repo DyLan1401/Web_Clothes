@@ -1,51 +1,51 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
-use App\Models\User; // Thêm model User
-use Illuminate\Support\Facades\Auth; // Thêm Auth facade
+use App\Models\User; // Model User
+use Illuminate\Support\Facades\Auth; // Facade Auth
+use Illuminate\Support\Facades\Hash;
 use Exception;
 
-class SocialiteController extends Controller{
-
-    public function googleLogin(){
-        return Socialite::driver('google')->redirect();
+class SocialiteController extends Controller
+{
+    /**
+     * Chuyển hướng người dùng đến trang đăng nhập của nhà cung cấp
+     */
+    public function authProviderRedirect($provider)
+    {
+        if ($provider) {
+            return Socialite::driver($provider)->redirect();
+        }
+        abort(404);
     }
 
-    public function googleAuthenication() {
+    /**
+     * Xử lý callback từ nhà cung cấp đăng nhập
+     */
+    public function socialAuthentication($provider)
+    {
         try {
-            $googleUser = Socialite::driver('google')->user();
-            
-            // Tìm user trong database bằng google id hoặc email
-            $user = User::where('google_id', $googleUser->id)
-                        ->orWhere('email', $googleUser->email)
-                        ->first();
-            
-            // Nếu không tìm thấy, tạo user mới
-            if(!$user){
+            $sociaUser = Socialite::driver($provider)->user();
+    
+            $user = User::where('auth_provider_id', $sociaUser->id)->first();
+    
+            if (!$user) {
                 $user = User::create([
-                    'name' => $googleUser->name,
-                    'email' => $googleUser->email,
-                    'google_id' => $googleUser->id,
-                    'password' => bcrypt(rand(100000,999999)), // Mật khẩu random
+                    'name' => $sociaUser->name ?? 'Unknown',
+                    'email' => $sociaUser->email ?? 'nlan4670' . uniqid() . '@gmail.com',
+                    'auth_provider_id' => $sociaUser->id,
+                    'auth_provider' => $provider,
+                    'password' => bcrypt('123456@'),
                 ]);
-            } else {
-                // Cập nhật google_id nếu chưa có
-                if (empty($user->google_id)) {
-                    $user->google_id = $googleUser->id;
-                    $user->save();
-                }
             }
-            
-            // Đăng nhập
+    
             Auth::login($user);
-            
-            // Chuyển hướng đến trang chính sau khi đăng nhập
             return redirect()->route('index');
-            
         } catch (Exception $e) {
-            return redirect('login')->with('error', 'Google authentication failed: ' . $e->getMessage());
+            return redirect('login')->with('error', 'Đăng nhập thất bại: ' . $e->getMessage());
         }
     }
 }
