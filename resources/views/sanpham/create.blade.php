@@ -17,41 +17,49 @@
                 <form action="{{ route('sanpham.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
+                    <!-- ID sản phẩm -->
                     <div class="mb-3">
                         <label for="id_san_pham" class="form-label">ID sản phẩm</label>
                         <input type="text" name="id_san_pham" class="form-control" required>
                     </div>
 
+                    <!-- Tên sản phẩm -->
                     <div class="mb-3">
                         <label for="Ten_SP" class="form-label">Tên sản phẩm</label>
                         <input type="text" name="Ten_SP" class="form-control" required>
                     </div>
 
+                    <!-- Mô tả -->
                     <div class="mb-3">
                         <label for="MoTa_SP" class="form-label">Mô tả</label>
                         <textarea name="MoTa_SP" class="form-control" rows="3"></textarea>
                     </div>
 
+                    <!-- Giá -->
                     <div class="mb-3">
                         <label for="Gia" class="form-label">Giá</label>
                         <input type="number" name="Gia" class="form-control" step="0.01" required>
                     </div>
 
+                    <!-- Số lượng -->
                     <div class="mb-3">
                         <label for="SoLuong" class="form-label">Số lượng</label>
                         <input type="number" name="SoLuong" class="form-control" required>
                     </div>
 
+                    <!-- Loại sản phẩm -->
                     <div class="mb-3">
                         <label for="Loai_SP" class="form-label">Loại sản phẩm</label>
                         <input type="text" name="Loai_SP" class="form-control" required>
                     </div>
 
+                    <!-- Hình ảnh -->
                     <div class="mb-3">
                         <label for="Hinh_SP" class="form-label">Hình ảnh</label>
                         <input type="file" name="Hinh_SP" class="form-control">
                     </div>
 
+                    <!-- Button Submit -->
                     <button type="submit" class="btn btn-primary w-100">Lưu sản phẩm</button>
                 </form>
             </div>

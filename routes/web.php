@@ -2,13 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SanPhamController;
-
 use App\Http\Controllers\Product_CategoryController;
 
+// Route cho danh mục sản phẩm
 Route::resource('danhmuc', Product_CategoryController::class);
 
-
-// Route mặc định sẽ chuyển hướng về trang danh sách sản phẩm
+// Route mặc định chuyển hướng về trang danh sách sản phẩm
 Route::get('/', function () {
     return redirect()->route('sanpham.index');
 });
