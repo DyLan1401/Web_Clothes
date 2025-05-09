@@ -36,6 +36,7 @@ Route::get('signout', [CrudUserController::class, 'signOut'])->name('signout');
 use App\Http\Controllers\DanhMucSanPhamController;
 
 Route::resource('danhmuc', DanhMucSanPhamController::class);
+//trang chủ index
 Route::get('/', function () {
     return view('index');
 })->name('index');
@@ -47,7 +48,7 @@ use App\Http\Controllers\Product_CategoryController;
 Route::resource('danhmuc', Product_CategoryController::class);
 
 // Route mặc định chuyển hướng về trang danh sách sản phẩm
-Route::get('/', function () {
+Route::get('sanpham/index', function () {
 
     return redirect()->route('sanpham.index');
     return view('viewproduct');
