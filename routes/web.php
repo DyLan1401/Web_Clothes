@@ -9,7 +9,10 @@ Route::resource('danhmuc', Product_CategoryController::class);
 
 // Route mặc định chuyển hướng về trang danh sách sản phẩm
 Route::get('/', function () {
+
     return redirect()->route('sanpham.index');
+    return view('viewproduct');
+
 });
 
 // Route tạo mới sản phẩm

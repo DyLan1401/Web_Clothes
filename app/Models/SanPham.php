@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SanPham extends Model
 {
+
     protected $table = 'san_phams';
     protected $primaryKey = 'id_san_pham';
     public $incrementing = false; // vì id_san_pham không phải auto increment
@@ -23,3 +24,7 @@ class SanPham extends Model
         'Hinh_SP',
     ];
 }
+
+    //
+}
+
