@@ -33,6 +33,9 @@ Route::get('list', [CrudUserController::class, 'listUser'])->name('user.list');
 
 Route::get('signout', [CrudUserController::class, 'signOut'])->name('signout');
 
+use App\Http\Controllers\DanhMucSanPhamController;
+
+Route::resource('danhmuc', DanhMucSanPhamController::class);
 Route::get('/', function () {
     return view('index');
 })->name('index');
@@ -70,4 +73,5 @@ Route::delete('sanpham/{sanpham}', [SanPhamController::class, 'destroy'])->name(
 Route::resource('sanpham', SanPhamController::class)->except([
     'create', 'store', 'edit', 'update', 'destroy'
 ]);
+
 
