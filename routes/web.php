@@ -10,8 +10,8 @@ use App\Http\Controllers\HtmlController;
 
 
 Route::controller(SocialiteController::class)->group(function () {
-    Route::get('auth/google','googleLogin')->name('auth.google');
-Route::get('auth/google-callback','googleAuthenication')->name('auth.google-callback');
+    Route::get('auth/{provider}/redirect', 'authProviderRedirect')->name('auth.redirection');
+    Route::get('auth/{provider}/callback', 'socialAuthentication')->name('auth.callback');
 });
 
 Route::get('dashboard', [CrudUserController::class, 'dashboard']);
