@@ -2,7 +2,11 @@
 
 @section('content')
     <main class="signup-form">
+<<<<<<< HEAD
         <div class="cotainer">
+=======
+        <div class="container">
+>>>>>>> bf4476a8fc785ba2b652d2678268fc5640feb534
             <div class="row justify-content-center">
                 <div class="col-md-4">
                     <div class="card">
@@ -11,7 +15,10 @@
                             <form action="{{ route('user.postUpdateUser') }}" method="POST">
                                 @csrf
                                 <input name="id" type="hidden" value="{{$user->id}}">
+<<<<<<< HEAD
 
+=======
+>>>>>>> bf4476a8fc785ba2b652d2678268fc5640feb534
                                 <div class="form-group mb-3">
                                     <input type="text" placeholder="Name" id="name" class="form-control" name="name"
                                            value="{{ $user->name }}"
@@ -21,15 +28,28 @@
                                     @endif
                                 </div>
 
+<<<<<<< HEAD
                                 <div class="form-group mb-3">
                                     <input type="text" placeholder="Email" id="email" class="form-control" name="email"
                                            value="{{ $user->email }}"
                                            required autofocus>
+=======
+
+                           
+                                </div>
+                                <div class="form-group mb-3">
+                                    <input type="text" placeholder="Email" id="email_address" class="form-control"
+                                           value="{{ $user->email }}"
+                                           name="email" required autofocus>
+>>>>>>> bf4476a8fc785ba2b652d2678268fc5640feb534
                                     @if ($errors->has('email'))
                                         <span class="text-danger">{{ $errors->first('email') }}</span>
                                     @endif
                                 </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> bf4476a8fc785ba2b652d2678268fc5640feb534
                                 <div class="form-group mb-3">
                                     <input type="password" placeholder="Password" id="password" class="form-control"
                                            name="password" required>
@@ -48,4 +68,8 @@
             </div>
         </div>
     </main>
+<<<<<<< HEAD
 @endsection
+=======
+@endsection
+>>>>>>> bf4476a8fc785ba2b652d2678268fc5640feb534

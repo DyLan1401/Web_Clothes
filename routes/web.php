@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CrudUserController;
@@ -17,6 +18,21 @@ use App\Http\Controllers\DiscountController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+=======
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CrudUserController;
+use App\Http\Controllers\SocialiteController;
+use App\Http\Controllers\HtmlController;
+
+
+
+
+Route::controller(SocialiteController::class)->group(function () {
+    Route::get('auth/{provider}/redirect', 'authProviderRedirect')->name('auth.redirection');
+    Route::get('auth/{provider}/callback', 'socialAuthentication')->name('auth.callback');
+});
+>>>>>>> bf4476a8fc785ba2b652d2678268fc5640feb534
 
 Route::get('dashboard', [CrudUserController::class, 'dashboard']);
 
@@ -34,6 +50,7 @@ Route::get('update', [CrudUserController::class, 'updateUser'])->name('user.upda
 Route::post('update', [CrudUserController::class, 'postUpdateUser'])->name('user.postUpdateUser');
 
 Route::get('list', [CrudUserController::class, 'listUser'])->name('user.list');
+<<<<<<< HEAD
 //Roles
 Route::get('role', [RoleController::class, 'role'])->name('user.role');
 //profile
@@ -58,3 +75,51 @@ Route::put('/discounts/{discount_id}', [DiscountController::class, 'update'])->n
 Route::get('/', function () {
     return view('welcome');
 });
+=======
+
+Route::get('signout', [CrudUserController::class, 'signOut'])->name('signout');
+
+use App\Http\Controllers\DanhMucSanPhamController;
+
+Route::resource('danhmuc', DanhMucSanPhamController::class);
+//trang chủ index
+Route::get('/', function () {
+    return view('index');
+})->name('index');
+
+use App\Http\Controllers\SanPhamController;
+use App\Http\Controllers\Product_CategoryController;
+
+// Route cho danh mục sản phẩm
+Route::resource('danhmuc', Product_CategoryController::class);
+
+// Route mặc định chuyển hướng về trang danh sách sản phẩm
+Route::get('sanpham/index', function () {
+
+    return redirect()->route('sanpham.index');
+    return view('viewproduct');
+
+});
+
+// Route tạo mới sản phẩm
+Route::get('sanpham/create', [SanPhamController::class, 'create'])->name('sanpham.create');
+
+// Route xử lý tạo mới sản phẩm (POST)
+Route::post('sanpham', [SanPhamController::class, 'store'])->name('sanpham.store');
+
+// Route chỉnh sửa sản phẩm (GET)
+Route::get('sanpham/{sanpham}/edit', [SanPhamController::class, 'edit'])->name('sanpham.edit');
+
+// Route xử lý cập nhật sản phẩm (PUT/PATCH)
+Route::put('sanpham/{sanpham}', [SanPhamController::class, 'update'])->name('sanpham.update');
+
+// Route xóa sản phẩm
+Route::delete('sanpham/{sanpham}', [SanPhamController::class, 'destroy'])->name('sanpham.destroy');
+
+// Các route resource sẽ tự động tạo ra các route còn lại (index, show) cho resource 'sanpham'
+Route::resource('sanpham', SanPhamController::class)->except([
+    'create', 'store', 'edit', 'update', 'destroy'
+]);
+
+
+>>>>>>> bf4476a8fc785ba2b652d2678268fc5640feb534

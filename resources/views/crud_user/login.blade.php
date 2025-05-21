@@ -2,7 +2,11 @@
 
 @section('content')
     <main class="login-form">
+<<<<<<< HEAD
         <div class="cotainer">
+=======
+        <div class="container">
+>>>>>>> bf4476a8fc785ba2b652d2678268fc5640feb534
             <div class="row justify-content-center">
                 <div class="col-md-4">
                     <div class="card">
@@ -31,7 +35,17 @@
                                     </div>
                                 </div>
                                 <div class="d-grid mx-auto">
+<<<<<<< HEAD
                                     <button type="submit" class="btn btn-dark btn-block">Signin</button>
+=======
+                                        <!--Login with gg-->
+                                    <a title="Login with Google" href="{{route('auth.redirection','google') }}" class=" text-center  ">Login with Google</a>
+                                </div>
+                                <div class="d-grid mx-auto">
+                                        <!--Login with facebook-->
+                                    <a title="Login with Facebook" href="{{route('auth.redirection','facebook') }}" class=" text-center  ">Login with Facebook</a>
+                                    <button type="submit" class="btn btn-dark btn-block">Sign in</button>
+>>>>>>> bf4476a8fc785ba2b652d2678268fc5640feb534
                                 </div>
                             </form>
                         </div>
@@ -40,4 +54,8 @@
             </div>
         </div>
     </main>
+<<<<<<< HEAD
 @endsection
+=======
+@endsection
+>>>>>>> bf4476a8fc785ba2b652d2678268fc5640feb534

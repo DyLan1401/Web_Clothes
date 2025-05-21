@@ -10,7 +10,10 @@
                         <div class="card-body">
                             <form action="{{ route('user.postUser') }}" method="POST">
                                 @csrf
+<<<<<<< HEAD
 
+=======
+>>>>>>> bf4476a8fc785ba2b652d2678268fc5640feb534
                                 <div class="form-group mb-3">
                                     <input type="text" placeholder="Name" id="name" class="form-control" name="name"
                                            required autofocus>
@@ -18,7 +21,10 @@
                                         <span class="text-danger">{{ $errors->first('name') }}</span>
                                     @endif
                                 </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> bf4476a8fc785ba2b652d2678268fc5640feb534
                                 <div class="form-group mb-3">
                                     <input type="text" placeholder="Email" id="email_address" class="form-control"
                                            name="email" required autofocus>
@@ -43,4 +49,8 @@
             </div>
         </div>
     </main>
+<<<<<<< HEAD
 @endsection
+=======
+@endsection
+>>>>>>> bf4476a8fc785ba2b652d2678268fc5640feb534

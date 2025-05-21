@@ -10,9 +10,12 @@
                             <th>ID</th>
                             <th>Name</th>
                             <th>Email</th>
+<<<<<<< HEAD
                             <th>Roles</th>
                             <th>Profile</th>
                             <th>Order</th>
+=======
+>>>>>>> bf4476a8fc785ba2b652d2678268fc5640feb534
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -23,6 +26,7 @@
                                 <th>{{ $user->name }}</th>
                                 <th>{{ $user->email }}</th>
                                 <th>
+<<<<<<< HEAD
                                     @foreach($user->roles as $role)
                                         <a href="{{ route('user.role', ['id' => $role->id]) }}">
                                             {{ $role->name . '-' }}
@@ -40,6 +44,8 @@
                                 </th>
 
                                 <th>
+=======
+>>>>>>> bf4476a8fc785ba2b652d2678268fc5640feb534
                                     <a href="{{ route('user.readUser', ['id' => $user->id]) }}">View</a> |
                                     <a href="{{ route('user.updateUser', ['id' => $user->id]) }}">Edit</a> |
                                     <a href="{{ route('user.deleteUser', ['id' => $user->id]) }}">Delete</a>
@@ -48,8 +54,15 @@
                         @endforeach
                     </tbody>
                 </table>
+<<<<<<< HEAD
                 {!! $users->withQueryString()->links('pagination::bootstrap-5') !!}
             </div>
         </div>
     </main>
 @endsection
+=======
+            </div>
+        </div>
+    </main>
+@endsection
+>>>>>>> bf4476a8fc785ba2b652d2678268fc5640feb534
